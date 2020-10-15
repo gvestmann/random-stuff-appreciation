@@ -1,0 +1,48 @@
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
+
+.card {
+    margin: 1rem;
+    width: 320px;
+}
+
+button {
+    float: right;
+    border: 0;
+    background: white;
+}
+
+.heart-icon-right:hover {
+    color: red;
+}
+
+a.navbar-brand {
+    font-size: 30px;
+    color: #1C2331;
+    text-transform: uppercase;
+  }
+  
+a.nav-link.avatar.dropdown-toggle.waves-effect.waves-light {
+    color: #FFFFFF; 
+}
+
+p.card-text {
+    color: #555555
+}
+
+.fa-hamburger {
+    color: #1C2331
+}
+
+.nav-link .fa-heart {
+    color: red;
+}
+
+a.nav-link.waves-effect.waves-light {
+    font-size: 30px;
+}
+
+.row {
+    margin-top: 4rem;
+}
