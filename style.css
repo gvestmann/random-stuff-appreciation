@@ -15,6 +15,17 @@ button {
 
 .heart-icon-right:hover {
     color: red;
+    content: "\f004"
+}
+
+.heart-icon-right-loved {
+    color: red;
+}
+
+button {
+    position: absolute;
+    top: 265px;
+    right: 20px;
 }
 
 a.navbar-brand {
@@ -45,4 +56,12 @@ a.nav-link.waves-effect.waves-light {
 
 .row {
     margin-top: 4rem;
+}
+
+.love-this {
+    color: red;
+}
+
+button:focus {
+    outline: 0 !important;
 }
