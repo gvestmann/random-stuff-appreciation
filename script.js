@@ -190,8 +190,7 @@ let startUpStuff = [
     image: "img/wolf.jpg",
     category: "nature",
     love: false,
-    },
-
+    }, 
 ]
 
 function love(obj) {
@@ -215,6 +214,61 @@ function love(obj) {
     document.getElementById(`${obj}`).className = "love-this";
     document.getElementById(`${obj}`).setAttribute("onClick", "hate(this);")
     document.getElementById(`icon-${obj}`).className = "fa fa-heart heart-icon-right";
+}
+
+function build(obj) {
+    sortStuff();
+    const cardsContainer = document.getElementById('cards-container');
+    let localStuff = JSON.parse(localStorage.getItem('localStuff'));
+    clearDom();
+    history.pushState(null, obj.id, obj.id)
+    var obj = obj.id
+    for(let i = 0; i < localStuff.length; i++) {
+        if(localStuff[i].category === obj) {
+            var card = document.createElement('div')
+            card.setAttribute("class", "card animated fadeInUp delay-1s")
+            // Create image container
+            var imgContainer = document.createElement('div');
+            imgContainer.setAttribute("class", "view overlay zoom embed-responsive embed-responsive-4by3")
+            // Create image
+            var img = document.createElement('img')
+            img.setAttribute("class", "card-img-top embed-responsive-item")
+            img.setAttribute("src", localStuff[i].image)
+            // Create card body
+            var cardBody = document.createElement('div');
+            cardBody.setAttribute("class", "card-body");
+            // Create title
+            var title = document.createElement('h4');
+            title.setAttribute("class", "card-title");
+            title.innerHTML = localStuff[i].title;
+            // Create icon + button
+            var button = document.createElement('button');
+            button.setAttribute("id", localStuff[i].id);
+    
+            if(localStuff[i].love === true) {
+            button.setAttribute("onClick", "hate(this)")
+            button.setAttribute("class", "love-this")
+            button.innerHTML = `<i id="icon-${localStuff[i].id}" class="fa fa-heart heart-icon-right"></i>`            
+            } else if(localStuff[i].love === false) {
+            button.setAttribute("onClick", "love(this)")
+            button.innerHTML = `<i id="icon-${localStuff[i].id}" class="far fa-heart heart-icon-right"></i>`
+            }
+    
+            // Create card's text
+            var cardText = document.createElement('p')
+            cardText.setAttribute("class", "card-text");
+            cardText.innerHTML = localStuff[i].text;
+            
+            // ... and put it all together!
+            imgContainer.appendChild(img)
+            card.appendChild(imgContainer)
+            card.appendChild(cardBody)
+            cardBody.appendChild(title);;
+            cardBody.appendChild(button);
+            cardBody.appendChild(cardText);
+            cardsContainer.appendChild(card);
+        }
+    }
 }
 
 function hate(obj) {
@@ -290,56 +344,13 @@ function firstBuild() {
 
 let localStuff = JSON.parse(localStorage.getItem('localStuff'));
 
-/* function firstBuild() {
-    if(firstTimeVisit != false) {
-    const cardsContainer = document.getElementById('cards-container');
-    for(let i = 0; i < startUpStuff.length; i++) {
-        // Create the cards
-        var card = document.createElement('div')
-        card.setAttribute("class", "card animated fadeInUp delay-1s")
-        // Create image container
-        var imgContainer = document.createElement('div');
-        imgContainer.setAttribute("class", "view overlay zoom embed-responsive embed-responsive-4by3")
-        // Create image
-        var img = document.createElement('img')
-        img.setAttribute("class", "card-img-top embed-responsive-item")
-        img.setAttribute("src", startUpStuff[i].image)
-        // Create card body
-        var cardBody = document.createElement('div');
-        cardBody.setAttribute("class", "card-body");
-        // Create title
-        var title = document.createElement('h4');
-        title.setAttribute("class", "card-title");
-        title.innerHTML = startUpStuff[i].title;
-        // Create icon + button
-        var button = document.createElement('button');
-        button.setAttribute("id", startUpStuff[i].id);
-        button.setAttribute("onClick", "love(this)")
-        button.innerHTML = `<i id="icon-${startUpStuff[i].id}" class="far fa-heart heart-icon-right"></i>`
-
-        // Create card's text
-        var cardText = document.createElement('p')
-        cardText.setAttribute("class", "card-text");
-        cardText.innerHTML = startUpStuff[i].text;
-        
-        // ... and put it all together!
-        imgContainer.appendChild(img)
-        card.appendChild(imgContainer)
-        card.appendChild(cardBody)
-        cardBody.appendChild(title);;
-        cardBody.appendChild(button);
-        cardBody.appendChild(cardText);
-        cardsContainer.appendChild(card);
-
-        localStorage.setItem('localStuff', JSON.stringify(startUpStuff));
-        localStorage.setItem('hasVisited', false)
-    }
-    } 
-}*/
 
 
 function rebuildAll() {
+    history.pushState(null, "", "/");
+    sortStuff();
     let localStuff = JSON.parse(localStorage.getItem('localStuff'));
+    clearDom();
     const cardsContainer = document.getElementById('cards-container');
     for(let i = 0; i < localStuff.length; i++) {
         // Create the cards
@@ -402,3 +413,57 @@ function sortStuff() {
 firstBuild();
 sortStuff();
 rebuildAll();
+
+function loveList() {
+    history.pushState(null, "Love", "love")
+    let localStuff = JSON.parse(localStorage.getItem('localStuff'));
+    const cardsContainer = document.getElementById('cards-container');
+    clearDom();
+    for(let i = 0; i < localStuff.length; i++) {
+        if(localStuff[i].love === true) {
+        // Create the cards
+        var card = document.createElement('div')
+        card.setAttribute("class", "card animated fadeInUp delay-1s")
+        // Create image container
+        var imgContainer = document.createElement('div');
+        imgContainer.setAttribute("class", "view overlay zoom embed-responsive embed-responsive-4by3")
+        // Create image
+        var img = document.createElement('img')
+        img.setAttribute("class", "card-img-top embed-responsive-item")
+        img.setAttribute("src", localStuff[i].image)
+        // Create card body
+        var cardBody = document.createElement('div');
+        cardBody.setAttribute("class", "card-body");
+        // Create title
+        var title = document.createElement('h4');
+        title.setAttribute("class", "card-title");
+        title.innerHTML = localStuff[i].title;
+        // Create icon + button
+        var button = document.createElement('button');
+        button.setAttribute("id", localStuff[i].id);
+
+        if(localStuff[i].love === true) {
+        button.setAttribute("onClick", "hate(this)")
+        button.setAttribute("class", "love-this")
+        button.innerHTML = `<i id="icon-${localStuff[i].id}" class="fa fa-heart heart-icon-right"></i>`            
+        } else if(localStuff[i].love === false) {
+        button.setAttribute("onClick", "love(this)")
+        button.innerHTML = `<i id="icon-${localStuff[i].id}" class="far fa-heart heart-icon-right"></i>`
+        }
+
+        // Create card's text
+        var cardText = document.createElement('p')
+        cardText.setAttribute("class", "card-text");
+        cardText.innerHTML = localStuff[i].text;
+        
+        // ... and put it all together!
+        imgContainer.appendChild(img)
+        card.appendChild(imgContainer)
+        card.appendChild(cardBody)
+        cardBody.appendChild(title);;
+        cardBody.appendChild(button);
+        cardBody.appendChild(cardText);
+        cardsContainer.appendChild(card);
+    } 
+    }
+};

@@ -20,10 +20,10 @@
   
 <!--Navbar -->
   <nav class="mb-1 navbar navbar-expand-lg  unique-dark-color">
-    <a class="navbar-brand ml-4" href="#">Random Stuff Appreciation</a>
+    <a class="navbar-brand ml-4" href="#" onclick="javascript:rebuildAll()">Random Stuff Appreciation</a>
       <ul class="navbar-nav ml-auto mr-2 nav-flex-icons">
         <li class="nav-item">
-          <a class="nav-link waves-effect waves-light">
+          <a onclick="javascript:loveList()"class="nav-link waves-effect waves-light">
             <i class="fas fa-heart"></i>
           </a>
         </li>
@@ -34,9 +34,9 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-default"
             aria-labelledby="navbarDropdownMenuLink-333">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a id="nature" onclick="javascript:build(this)" class="dropdown-item" href="#">Nature</a>
+            <a id="people" onclick="javascript:build(this)" class="dropdown-item" href="#">People</a>
+            <a id="things" onclick="javascript:build(this)" class="dropdown-item" href="#">Things</a>
           </div>
         </li>
       </ul>
