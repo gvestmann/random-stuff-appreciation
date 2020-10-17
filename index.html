@@ -19,10 +19,13 @@
 <body>
   
 <!--Navbar -->
-  <nav class="mb-1 navbar navbar-expand-lg  unique-dark-color">
+  <!-- Classes and stuff for the nav, not gonna go into that here -->
+  <nav class="mb-1 navbar navbar-expand-lg unique-dark-color">
+    <!-- The navbar brand, it calls to a function to rebuild all card -->
     <a class="navbar-brand ml-4" href="#" onclick="javascript:rebuildAll()">Random Stuff Appreciation</a>
       <ul class="navbar-nav ml-auto mr-2 nav-flex-icons">
         <li class="nav-item">
+          <!-- The heart icon, calls function to build the favourites list -->
           <a onclick="javascript:loveList()"class="nav-link waves-effect waves-light">
             <i class="fas fa-heart"></i>
           </a>
@@ -34,6 +37,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-default"
             aria-labelledby="navbarDropdownMenuLink-333">
+            <!-- The hamburger dropdown menu, each item call a function the build a category page, uses the <a> ID as a parameter -->
             <a id="nature" onclick="javascript:build(this)" class="dropdown-item" href="#">Nature</a>
             <a id="people" onclick="javascript:build(this)" class="dropdown-item" href="#">People</a>
             <a id="things" onclick="javascript:build(this)" class="dropdown-item" href="#">Things</a>
@@ -41,13 +45,18 @@
         </li>
       </ul>
   </nav>
+  <!-- End of nav -->
 
+  <!-- Main content starts, container below for cards -->
   <div class="container-fluid">
     <div id="cards-container" class="row d-flex justify-content-center">
 
 
-      <!--
+    <!-- CARD EXAMPLE -->
+    <!-- CARD START
+      // CARD WRAPPER - CLASSES FOR ANIMATION
       <div class="card animated fadeInUp delay-1s">
+        //
         <div class="view overlay zoom embed-responsive embed-responsive-4by3">
           <img class="card-img-top embed-responsive-item" src="img/dogs.jpg">
         </div>
@@ -56,28 +65,25 @@
           <button class="love-this">
             <i class="fas fa-heart heart-icon-right"></i>
           </button>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+          <p class="card-text">
+            HERE COME THE CARD'S CONTENT TEXT
+          </p>
         </div>
       </div> 
-      -->
+    CARD END -->
 
     
     </div>
   </div>
-
-
-
-
-  <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <!-- Popper JS tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- My custom CSS -->
-  <script type="text/javascript" src="script.js"></script>
-</body>
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Popper JS tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- My custom CSS -->
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>

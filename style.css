@@ -1,3 +1,29 @@
+
+/* NAVBAR */
+a.navbar-brand {
+    font-size: 30px;
+    color: #1C2331;
+    text-transform: uppercase;
+  }
+  
+a.nav-link.avatar.dropdown-toggle.waves-effect.waves-light {
+    color: #FFFFFF; 
+}
+
+.nav-link .fa-heart {
+    color: red;
+}
+
+a.nav-link.waves-effect.waves-light {
+    font-size: 30px;
+}
+
+
+/* CARDS & OTHER LAYOUT */
+.row {
+    margin-top: 1.5rem;
+}
+
 .embed-responsive .card-img-top {
     object-fit: cover;
 }
@@ -5,6 +31,24 @@
 .card {
     margin: 1rem;
     width: 320px;
+}
+
+p.card-text {
+    color: #555555
+}
+
+
+/* BUTTONS & ICONS */
+button:focus {
+    outline: 0 !important;
+}
+
+.love-this {
+    color: red;
+}
+
+.fa-hamburger {
+    color: #1C2331
 }
 
 button {
@@ -26,42 +70,4 @@ button {
     position: absolute;
     top: 265px;
     right: 20px;
-}
-
-a.navbar-brand {
-    font-size: 30px;
-    color: #1C2331;
-    text-transform: uppercase;
-  }
-  
-a.nav-link.avatar.dropdown-toggle.waves-effect.waves-light {
-    color: #FFFFFF; 
-}
-
-p.card-text {
-    color: #555555
-}
-
-.fa-hamburger {
-    color: #1C2331
-}
-
-.nav-link .fa-heart {
-    color: red;
-}
-
-a.nav-link.waves-effect.waves-light {
-    font-size: 30px;
-}
-
-.row {
-    margin-top: 4rem;
-}
-
-.love-this {
-    color: red;
-}
-
-button:focus {
-    outline: 0 !important;
 }
