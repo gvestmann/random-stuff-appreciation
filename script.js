@@ -345,9 +345,8 @@ function firstBuild() {
 let localStuff = JSON.parse(localStorage.getItem('localStuff'));
 
 
-
 function rebuildAll() {
-    history.pushState(null, "", "/");
+    history.pushState(null, "", "/random-stuff-appreciation");
     sortStuff();
     let localStuff = JSON.parse(localStorage.getItem('localStuff'));
     clearDom();
